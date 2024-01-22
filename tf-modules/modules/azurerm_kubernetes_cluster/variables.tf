@@ -34,19 +34,10 @@ variable "identity" {
 variable "tags" {
   type = map(any)
 }
-variable "node_count" {
-  type = number
-}
-variable "vm_size" {
-  type = string
-}
-variable "name_nodepool" {
-  type = string
-}
 variable "nodes_pools" {
-  type = object({
+  type = map(object({
     name = string
     vm_size = string
     node_count = number
-  }) 
+  }))
 }

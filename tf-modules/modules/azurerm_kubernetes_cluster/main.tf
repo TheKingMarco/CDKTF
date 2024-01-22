@@ -6,8 +6,8 @@ resource "azurerm_kubernetes_cluster" "aks" {
 
   default_node_pool {
     name       = var.default_node_pool.name
-    node_count = var.node_count
-    vm_size    = var.vm_size
+    node_count = var.default_node_pool.node_count
+    vm_size    = var.default_node_pool.vm_size
   }
 
   identity {
@@ -19,10 +19,10 @@ resource "azurerm_kubernetes_cluster" "aks" {
 
 resource "azurerm_kubernetes_cluster_node_pool" "aks_nodepool" {
   for_each = var.nodes_pools
-  name                  = var.nodes_pools.name
+  name                  = each.value.name
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
-  vm_size               = var.nodes_pools.vm_size
-  node_count            = var.nodes_pools.node_count
+  vm_size               = each.value.vm_size
+  node_count            = each.value.node_count
 
   tags = var.tags
 }
