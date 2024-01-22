@@ -44,5 +44,9 @@ variable "name_nodepool" {
   type = string
 }
 variable "nodes_pools" {
-  type = string(any)
+  type = object({
+    name = string
+    vm_size = string
+    node_count = number
+  }) 
 }
