@@ -42,24 +42,24 @@ variable "HELM_RELEASE" {
     name = string
     repository = string
     chart = string
-    chart_version = string
-    namespace = string
-    create_namespace = bool
-    values = list(string)
-    set = set(object({
+    chart_version = optional(string, null)
+    namespace = optional(string, null)
+    create_namespace = optional(bool, null)
+    values = optional(list(string), null)
+    set = optional(set(object({
       name = string
       value = any
       type = optional(string, null)
-    }))
-    set_list = list(object({
+    })), null)
+    set_list = optional(list(object({
       name = string
       value = list(any) 
-    }))
-    set_sensitive = set(object({
+    })), null)
+    set_sensitive =  optional(set(object({
       name = string
       value = any
       type = optional(string, null)
-    }))
+    })), null)
   }))
   default = null
 }
