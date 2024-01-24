@@ -1,4 +1,4 @@
-#VARIABLES TEMPLATE 
+#VARIABLES TEMPLATE .TFVARS
 
 ACI = {
   "group-test" = {
@@ -49,4 +49,25 @@ ACI = {
       }
     ]
   }
+}
+
+#VARIABLE TEMPLATE VARIABLES.TF
+
+variable "ACI" {
+  #type = map(any)
+  type = map(object({
+    ip_address_type = string
+    os_type         = string
+    container = list(object({
+      name   = string
+      image  = string
+      cpu    = string
+      memory = string
+      ports = list(object({
+        port     = number
+        protocol = string
+      }))
+      environment_variables = map(any)
+    }))
+  }))
 }
