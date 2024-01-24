@@ -47,7 +47,7 @@ variable "set_sensitive" {
   type = set(object({
     name  = string
     value = any
-    type  = string
+    type  = optional(string, null)
   }))
   default = null
 }

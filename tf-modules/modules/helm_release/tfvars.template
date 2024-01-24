@@ -1,1 +1,65 @@
-#VARIABLES TEMPLATE 
+#VARIABLES TEMPLATE .TFVARS
+
+HELM_RELEASE = {
+  "gitlab" = {
+    name             = "gitlab"
+    repository       = "http://charts.gitlab.io/"
+    chart            = "gitlab"
+    chart_version    = "7.8.0"
+    namespace        = "gitlab"
+    create_namespace = true
+    values           = [""]
+    set = [{
+      name  = ""
+      value = ""
+    }]
+  }
+  "mattermost" = {
+    name             = "mattermost"
+    repository       = "https://helm.mattermost.com"
+    chart            = "mattermost-team-edition"
+    chart_version    = "6.6.46"
+    namespace        = "mattermost"
+    create_namespace = true
+    values           = ["helm_values/mattermost_values.yaml"]
+    set = [
+      {
+        name  = "serviceAccount.create"
+        value = false
+      },
+      {
+        name  = "externalDB.enabled"
+        value = false
+      }
+    ]
+  }
+}
+
+#VARIABLE TEMPLATE VARIABLES.TF
+
+variable "HELM_RELEASE" {
+  type = map(object({
+    name = string
+    repository = string
+    chart = string
+    chart_version = string
+    namespace = string
+    create_namespace = bool
+    values = list(string)
+    set = set(object({
+      name = string
+      value = any
+      type = optional(string, null)
+    }))
+    set_list = list(object({
+      name = string
+      value = list(any) 
+    }))
+    set_sensitive = set(object({
+      name = string
+      value = any
+      type = optional(string, null)
+    }))
+  }))
+  default = null
+}
