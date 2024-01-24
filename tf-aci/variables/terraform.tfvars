@@ -28,8 +28,8 @@ ACI = {
             protocol = "TCP"
         }]
         environment_variables = {
-          SONAR_JDBC_USERNAME = "marco"
-          SONAR_JDBC_PASSWORD = "Complicatissima1!"
+          SONAR_JDBC_USERNAME             = "marco"
+          SONAR_JDBC_PASSWORD             = "Complicatissima1!"
           SONAR_JDBC_URL                  = "jdbc:sqlserver://sonarqube-marco.database.windows.net:1433;database=sonar"
           SONAR_SEARCH_JAVAADDITIONALOPTS = "-Dnode.store.allow_mmap=false"
         }
@@ -103,25 +103,25 @@ ACI = {
 
 
 AKS = {
-    dns_prefix = "test"
-    default_node_pool = {
-        name = "nodepool"
-        node_count = 1
-        vm_size = "Standard_D2_v2"
-    }
-    identity = {
-        type = "SystemAssigned"
-    }
-    nodes_pools = {
+  dns_prefix = "test"
+  default_node_pool = {
+    name       = "nodepool"
+    node_count = 1
+    vm_size    = "Standard_D2_v2"
+  }
+  identity = {
+    type = "SystemAssigned"
+  }
+  nodes_pools = {
     "01" = {
-            name = "nodepool01"
-            vm_size = "Standard_D2_v2"
-            node_count = 1
-        },
+      name       = "nodepool01"
+      vm_size    = "Standard_D2_v2"
+      node_count = 1
+    },
     "02" = {
-            name = "nodepool02"
-            vm_size = "Standard_D2_v2"
-            node_count = 1
-        }
+      name       = "nodepool02"
+      vm_size    = "Standard_D2_v2"
+      node_count = 1
     }
+  }
 }

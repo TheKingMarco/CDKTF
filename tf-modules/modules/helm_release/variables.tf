@@ -8,56 +8,46 @@ variable "chart" {
   type = string
 }
 variable "chart_version" {
-  type = string
+  type    = string
   default = null
 }
 variable "namespace" {
-  type = string
+  type    = string
   default = null
 }
 variable "create_namespace" {
-  type = bool
+  type    = bool
   default = null
 }
 variable "values" {
-  type = list(string)
-  default = null
+  type        = list(string)
+  default     = null
+  description = "Puoi inserie sia file che variabili"
 }
 variable "description" {
-  type = string
+  type    = string
   default = null
 }
 variable "set" {
   type = set(object({
-    name = string
+    name  = string
     value = any
-    type = string
+    type  = optional(string, null)
   }))
-  default = [ {
-    name = ""
-    value = ""
-    type = null
-  } ]
+  default = null
 }
 variable "set_list" {
   type = list(object({
-    name = string
-    value = list(string)
+    name  = string
+    value = list(any)
   }))
-  default = [ {
-    name = ""
-    value = [""]
-  } ]
+  default = null
 }
 variable "set_sensitive" {
   type = set(object({
-    name = string
+    name  = string
     value = any
-    type = string
+    type  = string
   }))
-  default = [ {
-    name = ""
-    value = ""
-    type = null
-  } ]
+  default = null
 }

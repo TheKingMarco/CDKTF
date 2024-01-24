@@ -17,8 +17,8 @@ resource "azurerm_container_group" "azure_container_instance" {
       dynamic "ports" {
         for_each = container.value.ports
         content {
-          port     = ports.value.port  
-          protocol = ports.value.protocol 
+          port     = ports.value.port
+          protocol = ports.value.protocol
         }
       }
       environment_variables = container.value.environment_variables

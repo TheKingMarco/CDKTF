@@ -8,21 +8,21 @@ variable "resource_group_name" {
   type = string
 }
 variable "dns_prefix" {
-  type = string
+  type    = string
   default = null
 }
 variable "kubernetes_version" {
-  type = string
+  type    = string
   default = null
 }
 variable "network_profile" {
-  type = string
+  type    = string
   default = null
 }
 variable "default_node_pool" {
   type = object({
-    name = string
-    vm_size = string
+    name       = string
+    vm_size    = string
     node_count = number
   })
 }
@@ -36,8 +36,8 @@ variable "tags" {
 }
 variable "nodes_pools" {
   type = map(object({
-    name = string
-    vm_size = string
+    name       = string
+    vm_size    = string
     node_count = number
   }))
 }
