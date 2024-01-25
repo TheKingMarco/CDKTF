@@ -6,6 +6,7 @@ resource "helm_release" "release" {
   namespace        = var.namespace
   create_namespace = var.create_namespace
   description      = var.description
+  timeout = var.timeout
 
   values = [for path in var.values : try(file(path), "Failed to read file: ${path}")]
 

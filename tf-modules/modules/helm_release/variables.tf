@@ -19,6 +19,10 @@ variable "create_namespace" {
   type    = bool
   default = null
 }
+variable "timeout" {
+  type = number
+  default = null
+}
 variable "values" {
   type        = list(string)
   default     = null
