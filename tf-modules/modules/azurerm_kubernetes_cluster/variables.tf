@@ -24,6 +24,7 @@ variable "default_node_pool" {
     name       = string
     vm_size    = string
     node_count = number
+    temporary_name_for_rotation = optional(string, null)
   })
 }
 variable "identity" {
