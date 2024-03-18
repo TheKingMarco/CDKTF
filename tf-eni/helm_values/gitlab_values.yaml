@@ -1,0 +1,16 @@
+global:
+  hosts:
+    domain: "gitlab-lab.olivapro.it"
+
+
+certmanager-issuer:
+  email: "oliva.marco00@gmail.com"
+
+postgresql:
+  image:
+    tag: "13.6.0"
+
+gitlab-runner:
+  runners:
+    privileged: true
+

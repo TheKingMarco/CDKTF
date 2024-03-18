@@ -1,11 +1,10 @@
-LOCATION          = "westeurope"
+LOCATION          = "italynorth"
 ENVIRONMENT       = "noprod"
 WORKLOAD          = "tf"
 SUBSCRIPTION_TYPE = "eni"
-AZURE_REGION      = "we"
+AZURE_REGION      = "ita"
 
 AKS = {
-  dns_prefix = "test"
   default_node_pool = {
     name       = "nodepool"
     node_count = 1
@@ -25,5 +24,19 @@ AKS = {
       vm_size    = "Standard_D2_v2"
       node_count = 1
     }
+  }
+}
+
+
+HELM_RELEASE = {
+  "gitlab" = {
+    name             = "gitlab"
+    repository       = "http://charts.gitlab.io/"
+    chart            = "gitlab"
+    chart_version    = "7.8.0"
+    namespace        = "gitlab"
+    create_namespace = true
+    timeout          = 600
+    values           = ["helm_values/gitlab_values.yaml"]
   }
 }

@@ -11,6 +11,7 @@ locals {
     "CI"           = "ci-${var.WORKLOAD}-${var.SUBSCRIPTION_TYPE}-${var.AZURE_REGION}"
     "CI_DNS_LABEL" = "ci-dns-${var.WORKLOAD}-${var.SUBSCRIPTION_TYPE}-${var.AZURE_REGION}"
     "AKS"          = "aks-${var.WORKLOAD}-${var.SUBSCRIPTION_TYPE}-${var.AZURE_REGION}"
+    "AKS_DNS"      = "aks-dns-${var.WORKLOAD}-${var.SUBSCRIPTION_TYPE}-${var.AZURE_REGION}"
   }
   TAGS = {
     GENERAL = {
