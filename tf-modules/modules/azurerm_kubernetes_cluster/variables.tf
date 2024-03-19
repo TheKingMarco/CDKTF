@@ -41,4 +41,5 @@ variable "nodes_pools" {
     vm_size    = string
     node_count = number
   }))
+  default = null
 }
