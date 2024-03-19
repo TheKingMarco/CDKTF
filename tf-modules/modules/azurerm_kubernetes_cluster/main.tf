@@ -20,11 +20,11 @@ resource "azurerm_kubernetes_cluster" "aks" {
 }
 
 resource "azurerm_kubernetes_cluster_node_pool" "aks_nodepool" {
-  for_each              = var.nodes_pools
-  name                  = each.value.name
+  count                 = length(var.nodes_pools)
+  name                  = var.nodes_pools[count.index].name
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
-  vm_size               = each.value.vm_size
-  node_count            = each.value.node_count
+  vm_size               = var.nodes_pools[count.index].vm_size
+  node_count            = var.nodes_pools[count.index].node_count
 
   tags = var.tags
 }
