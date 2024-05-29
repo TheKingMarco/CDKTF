@@ -1,0 +1,5 @@
+LOCATION          = "italynorth"
+ENVIRONMENT       = "test"
+WORKLOAD          = "tf"
+SUBSCRIPTION_TYPE = "eni"
+AZURE_REGION      = "ita"

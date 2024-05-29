@@ -16,15 +16,17 @@ resource "azurerm_kubernetes_cluster" "aks" {
     type = var.identity.type
   }
 
+  
+
   tags = var.tags
 }
 
 resource "azurerm_kubernetes_cluster_node_pool" "aks_nodepool" {
-  count                 = length(var.nodes_pools)
-  name                  = var.nodes_pools[count.index].name
+  for_each              = var.nodes_pools == null ? {} : var.nodes_pools
+  name                  = each.value.name
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
-  vm_size               = var.nodes_pools[count.index].vm_size
-  node_count            = var.nodes_pools[count.index].node_count
+  vm_size               = each.value.vm_size
+  node_count            = each.value.node_count
 
   tags = var.tags
 }
