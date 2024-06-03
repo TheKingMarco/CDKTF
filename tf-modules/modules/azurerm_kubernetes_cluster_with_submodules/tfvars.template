@@ -1,0 +1,45 @@
+#VARIABLES TEMPLATE .TFVARS
+
+AKS = {
+    default_node_pool = {
+        name = "nodepool"
+        node_count = 1
+        vm_size = "Standard_D2_v2"
+    }
+    identity = {
+        type = "SystemAssigned"
+    }
+    nodes_pools = {
+    "01" = {
+            name = "nodepool01"
+            vm_size = "Standard_D2_v2"
+            node_count = 1
+        },
+    "02" = {
+            name = "nodepool02"
+            vm_size = "Standard_D2_v2"
+            node_count = 1
+        }
+    }
+}
+
+#VARIABLE TEMPLATE VARIABLES.TF
+
+variable "AKS" {
+  type = object({
+    dns_prefix = string
+    default_node_pool = object({
+      name       = string
+      node_count = number
+      vm_size    = string
+    })
+    identity = object({
+      type = string
+    })
+    nodes_pools = map(object({
+      name       = string
+      vm_size    = string
+      node_count = number
+    }))
+  })
+}
