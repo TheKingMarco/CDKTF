@@ -29,3 +29,4 @@ variable "AZURE_REGION" {
 #############################################
 variable "AKS" {}
 variable "policy_definitions" {}
+variable "target_resource_name" {}

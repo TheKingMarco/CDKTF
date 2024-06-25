@@ -13,7 +13,7 @@ locals {
     "AKS"          = "aks-${var.ENVIRONMENT}-${var.WORKLOAD}-${var.SUBSCRIPTION_TYPE}-${var.AZURE_REGION}"
     "KV"           = "kv-${var.ENVIRONMENT}-${var.WORKLOAD}-${var.SUBSCRIPTION_TYPE}-${var.AZURE_REGION}"
     "PRIVATE-SC"   = "psc-${var.ENVIRONMENT}-${var.WORKLOAD}-${var.SUBSCRIPTION_TYPE}-${var.AZURE_REGION}"
-    "PE"           = "pe-${var.ENVIRONMENT}-${var.WORKLOAD}-${var.SUBSCRIPTION_TYPE}-${var.AZURE_REGION}" 
+    "PE"           = "pe-${var.ENVIRONMENT}-${var.WORKLOAD}-${var.SUBSCRIPTION_TYPE}-${var.AZURE_REGION}"
     "AKS_DNS"      = "aks-dns-${var.ENVIRONMENT}-${var.WORKLOAD}-${var.SUBSCRIPTION_TYPE}-${var.AZURE_REGION}"
   }
   TAGS = {

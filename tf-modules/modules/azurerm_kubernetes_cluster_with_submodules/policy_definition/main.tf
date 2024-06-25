@@ -4,7 +4,7 @@ data "azurerm_policy_definition" "policy" {
 
 
 resource "azurerm_resource_policy_assignment" "policy-application" {
-  count = var.enabled == true ? 1 : 0
+    count = var.enabled== true ? 1 : 0
   name                 = "policy-${var.aks-name}-${var.policy_name}"
   resource_id          = var.aks-cluster-id
   policy_definition_id = data.azurerm_policy_definition.policy.id
