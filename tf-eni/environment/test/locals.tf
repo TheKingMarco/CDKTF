@@ -23,3 +23,11 @@ locals {
     }
   }
 }
+
+locals {
+  services = ["blobServices","tableServices","queueServices","fileServices"]
+}
+
+locals {
+  logs = ["StorageRead", "StorageWrite", "StorageDelete"]
+}

@@ -26,3 +26,7 @@ variable "AZURE_REGION" {
   type        = string
   default     = ""
 }
+
+
+# variable "rule_name" {}
+# variable "rule_enabled" {}
